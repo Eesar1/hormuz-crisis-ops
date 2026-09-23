@@ -1,0 +1,39 @@
+services:
+  - type: web
+    name: hormuz-crisis-api-eesar1
+    runtime: docker
+    plan: free
+    region: singapore
+    dockerfilePath: ./apps/server/Dockerfile
+    dockerContext: .
+    healthCheckPath: /health
+    envVars:
+      - key: WEB_ORIGIN
+        value: https://hormuz-crisis-ops-eesar1.onrender.com
+      - key: TICK_MS
+        value: 250
+      - key: HISTORY_INTERVAL_MS
+        value: 10000
+      - key: WEATHER_REFRESH_MS
+        value: 600000
+      - key: FLEET_PATH
+        value: /app/data/fleet.json
+      - key: AI_MODE
+        value: auto
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: OPENAI_MODEL
+        value: gemini-3.5-flash-lite
+      - key: OPENAI_BASE_URL
+        value: https://generativelanguage.googleapis.com/v1beta/openai
+
+  - type: web
+    name: hormuz-crisis-ops-eesar1
+    runtime: docker
+    plan: free
+    region: singapore
+    dockerfilePath: ./apps/web/Dockerfile
+    dockerContext: .
+    envVars:
+      - key: NEXT_PUBLIC_SERVER_URL
+        value: https://hormuz-crisis-api-eesar1.onrender.com

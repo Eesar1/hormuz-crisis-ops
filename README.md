@@ -55,6 +55,12 @@ Open:
 
 The simulator works without an AI key. To enable model-based distress extraction and fleet-advisor reasoning, set `OPENAI_API_KEY` in `.env`. The local structured parser remains a fallback so the demo never depends on an external AI service to boot.
 
+## Deploy on Render
+
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/Eesar1/hormuz-crisis-ops)
+
+The Blueprint creates a WebSocket-capable backend and a Next.js frontend. When prompted, enter the Gemini key as `OPENAI_API_KEY`; it is stored as a Render secret and is never committed to GitHub. Free Render services can sleep after inactivity, so allow about one minute for the first cold start.
+
 ## Quick start — without Docker
 
 Requires Node.js 22+.
