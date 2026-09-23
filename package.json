@@ -1,0 +1,12 @@
+{
+  "name": "hormuz-crisis-ops",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Real-time maritime crisis operations simulator for Code Rush Web Dev Track",
+  "scripts": {
+    "validate": "node scripts/validate.mjs",
+    "test:server": "npm --prefix apps/server test",
+    "build:server": "npm --prefix apps/server run build",
+    "build:web": "npm --prefix apps/web run build"
+  }
+}
